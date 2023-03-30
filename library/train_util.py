@@ -2235,7 +2235,7 @@ def get_optimizer(args, trainable_params):
             )
 
         optimizer_class = dadaptation.DAdaptAdam
-        optimizer = optimizer_class(trainable_params, lr=lr, **optimizer_kwargs)
+        optimizer = optimizer_class(trainable_params, lr=lr, decouple=True, weight_decay=0.6, **optimizer_kwargs)
 
     elif optimizer_type == "Adafactor".lower():
         # 引数を確認して適宜補正する
